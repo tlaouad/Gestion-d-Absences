@@ -1,8 +1,8 @@
 package upf.ac.ma.entity;
 
 import java.io.Serializable;
+import java.lang.Long;
 import javax.persistence.*;
-import upf.ac.ma.entity.Compte;
 
 /**
  * Entity implementation class for Entity: Enseignant
@@ -10,13 +10,22 @@ import upf.ac.ma.entity.Compte;
  */
 @Entity
 
-public class Enseignant extends Compte implements Serializable {
+public class Enseignant implements Serializable {
 
-	
+	   
+	@Id
+	private Long idEnseignant;
 	private static final long serialVersionUID = 1L;
 
 	public Enseignant() {
 		super();
+	}   
+	public Long getIdEnseignant() {
+		return this.idEnseignant;
+	}
+
+	public void setIdEnseignant(Long idEnseignant) {
+		this.idEnseignant = idEnseignant;
 	}
    
 }

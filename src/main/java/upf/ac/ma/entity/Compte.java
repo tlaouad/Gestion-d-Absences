@@ -9,20 +9,21 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Compte
  *
  */
-@Entity
+@MappedSuperclass
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="Role")
 
-public class Compte implements Serializable {
+public abstract class Compte implements Serializable {
 
-	@Id @GeneratedValue
+	 @Id
+	 @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String nom;
 	private String prenom;
 	private String email;
 	private String motDePasse;
-	@Temporal(TemporalType.DATE)
 	private Date dateNaissance;
 	private static final long serialVersionUID = 1L;
-
 	public Compte() {
 		super();
 	}

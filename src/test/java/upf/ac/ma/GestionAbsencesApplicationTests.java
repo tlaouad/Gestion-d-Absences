@@ -8,6 +8,11 @@ class GestionAbsencesApplicationTests {
 
 	@Test
 	void contextLoads() {
+		
+	}
+	private void setU() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

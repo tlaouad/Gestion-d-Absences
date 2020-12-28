@@ -16,6 +16,22 @@ public class Absence implements Serializable {
 	private Seance seance;
 	private static final long serialVersionUID = 1L;
 
+	public Long getIdAbsence() {
+		return idAbsence;
+	}
+
+	public void setIdAbsence(Long idAbsence) {
+		this.idAbsence = idAbsence;
+	}
+
+	public Seance getSeance() {
+		return seance;
+	}
+
+	public void setSeance(Seance seance) {
+		this.seance = seance;
+	}
+
 	public Absence() {
 		super();
 	}

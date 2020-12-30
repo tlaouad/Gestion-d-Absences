@@ -1,17 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
 	<persistence-unit name="gestionAbsences" transaction-type="RESOURCE_LOCAL">
-		<class>upf.ac.ma.entity.Compte</class>
+<<<<<<< HEAD
 		<class>upf.ac.ma.entity.Etudiant</class>
+=======
+	
+		<class>upf.ac.ma.entity.Compte</class>
+>>>>>>> 7e6614ac54432a8d0ab0d539f878ace1565ed88a
 		<class>upf.ac.ma.entity.Promotion</class>
 		<class>upf.ac.ma.entity.Filliere</class>
 		<class>upf.ac.ma.entity.Module</class>
 		<class>upf.ac.ma.entity.Semestre</class>
-		<class>upf.ac.ma.entity.Enseignant</class>
-		<class>upf.ac.ma.entity.Scolarite</class>
-		<class>upf.ac.ma.entity.Admin</class>
 		<class>upf.ac.ma.entity.Absence</class>
 		<class>upf.ac.ma.entity.Seance</class>
 		<class>upf.ac.ma.entity.EmploiDuTemps</class>
+<<<<<<< HEAD
+		<class>upf.ac.ma.entity.Compte</class>
+=======
+		
+		<properties>
+		<!--  
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:1998/jpa_e_db?zeroDateTimeBehavior=convertToNull" />
+			-->
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3308/gestion_absence?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			
+			<!-- First run 
+			<property name="eclipselink.ddl-generation" value="create-tables"/>
+			-->
+			
+			<!-- Second run 
+			<property name="eclipselink.ddl-generation" value="none"/>
+			-->
+			
+		</properties>
+		
+>>>>>>> 7e6614ac54432a8d0ab0d539f878ace1565ed88a
 	</persistence-unit>
 </persistence>

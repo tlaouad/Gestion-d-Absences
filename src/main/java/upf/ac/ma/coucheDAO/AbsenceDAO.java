@@ -25,7 +25,7 @@ public class AbsenceDAO {
 	List<Absence> getAllAbsences(Etudiant e)
 	{
 		@SuppressWarnings("unchecked")
-		List<Absence> lstAbs = em.createQuery("SELECT * FROM absence WHERE id_etudiant="+e.getIdEtudiant()).getResultList();
+		List<Absence> lstAbs = em.createQuery("SELECT * FROM absence WHERE id_etudiant="+e.getId()).getResultList();
 		return lstAbs;
 	}
 	
@@ -98,8 +98,7 @@ public class AbsenceDAO {
 	}
 	
 	public void delete(Absence a)
-	{
-		
+	{		
 		Absence ab = em.find(Absence.class, a.getIdAbsence());
 		em.getTransaction().begin();
 		em.remove(ab);

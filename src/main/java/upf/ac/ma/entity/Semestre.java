@@ -40,21 +40,5 @@ public class Semestre implements Serializable {
 	public Semestre() {
 		super();
 	}
-
-	public Long getIdSemeste() {
-		return idSemeste;
-	}
-
-	public void setIdSemeste(Long idSemeste) {
-		this.idSemeste = idSemeste;
-	}
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
    
 }

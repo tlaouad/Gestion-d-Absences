@@ -14,7 +14,7 @@ import javax.persistence.*;
 
 public class Seance implements Serializable {
 
-	@Id
+	@Id@GeneratedValue
 	private Long idSeance;
 	private String jour;
 	@Temporal(TemporalType.TIME)
@@ -87,29 +87,6 @@ public class Seance implements Serializable {
 		super();
 	}
 
-	public Long getIdSeance() {
-		return idSeance;
-	}
-
-	public void setIdSeance(Long idSeance) {
-		this.idSeance = idSeance;
-	}
-
-	public String getJour() {
-		return jour;
-	}
-
-	public void setJour(String jour) {
-		this.jour = jour;
-	}
-
-	public String getHeure() {
-		return heure;
-	}
-
-	public void setHeure(String heure) {
-		this.heure = heure;
-	}
    
 	
 }

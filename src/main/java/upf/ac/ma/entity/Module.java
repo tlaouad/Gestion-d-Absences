@@ -65,7 +65,6 @@ public class Module implements Serializable {
 	public void setEnseignant(Enseignant enseignant) {
 		this.enseignant = enseignant;
 	}
-<<<<<<< HEAD
 
 	public Semestre getSemestre() {
 		return semestre;
@@ -74,9 +73,5 @@ public class Module implements Serializable {
 	public void setSemestre(Semestre semestre) {
 		this.semestre = semestre;
 	}
-=======
-	
-	
->>>>>>> 7e6614ac54432a8d0ab0d539f878ace1565ed88a
    
 }

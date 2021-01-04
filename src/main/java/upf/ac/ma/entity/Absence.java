@@ -13,9 +13,19 @@ public class Absence implements Serializable {
 	
 	@Id @GeneratedValue
 	private Long idAbsence;
-	@ManyToOne @JoinColumn
+	@ManyToOne(fetch = FetchType.LAZY, 
+		       cascade =
+	       {
+	               CascadeType.MERGE,
+	               CascadeType.REMOVE
+	       }) @JoinColumn
 	private Seance seance;
-	@OneToOne @JoinColumn
+	@OneToOne(fetch = FetchType.LAZY, 
+		       cascade =
+	       {
+	    		   CascadeType.MERGE,
+	               CascadeType.REMOVE
+	       }) @JoinColumn
 	private Etudiant etudiant;
 	private static final long serialVersionUID = 1L;
 	
@@ -47,14 +57,6 @@ public class Absence implements Serializable {
 	public void setSeance(Seance seance) {
 		this.seance = seance;
 	}
-	
-	
-	
-	public Absence(Seance seance) {
-		super();
-		this.seance = seance;
-	}
-
 
 	public Absence() {
 		super();

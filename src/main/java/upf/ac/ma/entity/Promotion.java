@@ -17,14 +17,24 @@ public class Promotion implements Serializable {
 	private Long id;
 	@Temporal(TemporalType.DATE)
 	private Date dateDebut;
-	@ManyToOne @JoinColumn
+	@ManyToOne(fetch = FetchType.EAGER, 
+		       cascade =
+	       {
+	    		   CascadeType.MERGE,
+	               CascadeType.REMOVE
+	       }) @JoinColumn
 	private Filliere filliere;
-	@OneToOne @JoinColumn
+	@OneToOne(fetch = FetchType.EAGER, 
+		       cascade =
+	       {
+	    		   CascadeType.MERGE,
+	               CascadeType.REMOVE
+	       }) @JoinColumn
 	private EmploiDuTemps emploiDuTemps;
 	private static final long serialVersionUID = 1L;
 	
 	
-	public Promotion(Date dateDebut, Filliere filliere, EmploiDuTemps emploiDuTemps) {
+	public Promotion(Date dateDebut, Filliere filliere) {
 		super();
 		this.dateDebut = dateDebut;
 		this.filliere = filliere;

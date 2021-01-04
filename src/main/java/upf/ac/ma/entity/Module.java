@@ -14,11 +14,26 @@ public class Module implements Serializable {
 	@Id @GeneratedValue
 	private Long idModule;
 	private String nom;
-	@ManyToOne @JoinColumn
+	@ManyToOne(fetch = FetchType.LAZY, 
+		       cascade =
+	       {
+	    		   CascadeType.MERGE,
+	               CascadeType.REMOVE
+	       }) @JoinColumn
 	private Filliere filliere;
-	@ManyToOne @JoinColumn
+	@ManyToOne(fetch = FetchType.LAZY, 
+		       cascade =
+	       {
+	    		   CascadeType.MERGE,
+	               CascadeType.REMOVE
+	       }) @JoinColumn
 	private Enseignant enseignant;
-	@ManyToOne @JoinColumn
+	@ManyToOne(fetch = FetchType.LAZY, 
+		       cascade =
+	       {
+	    		   CascadeType.MERGE,
+	               CascadeType.REMOVE
+	       }) @JoinColumn
 	private Semestre semestre;
 	private static final long serialVersionUID = 1L;
 	

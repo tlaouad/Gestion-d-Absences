@@ -16,14 +16,25 @@ public class Seance implements Serializable {
 
 	@Id@GeneratedValue
 	private Long idSeance;
-	private String jour;
+	@Temporal(TemporalType.DATE)
+	private Date jour;
 	@Temporal(TemporalType.TIME)
 	private Date heure;
 	private String salle;
 	private static final long serialVersionUID = 1L;
-	@ManyToOne @JoinColumn
+	@ManyToOne(fetch = FetchType.LAZY, 
+		       cascade =
+	       {
+	    		   CascadeType.MERGE,
+	               CascadeType.REMOVE
+	       }) @JoinColumn
 	private Module module;
-	@ManyToOne @JoinColumn
+	@ManyToOne(fetch = FetchType.LAZY, 
+		       cascade =
+	       {
+	    		   CascadeType.MERGE,
+	               CascadeType.REMOVE
+	       }) @JoinColumn
 	private Enseignant enseignant;
 	
 	public Long getIdSeance() {
@@ -34,11 +45,11 @@ public class Seance implements Serializable {
 		this.idSeance = idSeance;
 	}
 
-	public String getJour() {
+	public Date getJour() {
 		return jour;
 	}
 
-	public void setJour(String jour) {
+	public void setJour(Date jour) {
 		this.jour = jour;
 	}
 
@@ -74,7 +85,7 @@ public class Seance implements Serializable {
 		this.enseignant = enseignant;
 	}
 
-	public Seance(String jour, Date heure, String salle, Module module, Enseignant enseignant) {
+	public Seance(Date jour, Date heure, String salle, Module module, Enseignant enseignant) {
 		super();
 		this.jour = jour;
 		this.heure = heure;

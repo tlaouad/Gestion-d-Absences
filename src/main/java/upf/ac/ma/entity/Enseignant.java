@@ -12,7 +12,12 @@ import javax.persistence.*;
 @DiscriminatorValue("Enseignant")
 public class Enseignant extends Compte implements Serializable {
 	private static final long serialVersionUID = 1L;
-	@OneToOne @JoinColumn
+	@OneToOne(fetch = FetchType.LAZY, 
+		       cascade =
+	       {
+	    		   CascadeType.MERGE,
+	               CascadeType.REMOVE
+	       }) @JoinColumn
 	private EmploiDuTemps emploiDuTemps;
 	public Enseignant() {
 		super();

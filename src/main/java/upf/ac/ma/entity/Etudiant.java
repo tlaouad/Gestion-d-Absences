@@ -12,17 +12,26 @@ import javax.persistence.*;
 @DiscriminatorValue("Etudiant")
 public class Etudiant extends Compte implements Serializable {   
 	private static final long serialVersionUID = 1L;
-	@ManyToOne @JoinColumn
+	@ManyToOne(fetch = FetchType.LAZY, 
+		       cascade =
+	       {
+	    		   CascadeType.MERGE,
+	               CascadeType.REMOVE
+	       }) @JoinColumn
 	private Promotion promotion;
 	@Column(unique = true)
 	private String cne;
 	public Etudiant() {
 		super();
 	}   
-	public Etudiant(String nom, String prenom, String email, String motDePasse, Date dateNaissance) {
+	
+	public Etudiant(String nom, String prenom, String email, String motDePasse, Date dateNaissance, Promotion promotion,
+			String cne) {
 		super(nom, prenom, email, motDePasse, dateNaissance);
-		// TODO Auto-generated constructor stub
+		this.promotion = promotion;
+		this.cne = cne;
 	}
+
 	public Promotion getPromotion() {
 		return promotion;
 	}

@@ -12,9 +12,7 @@ import javax.persistence.*;
 @MappedSuperclass
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="Role")
-
 public abstract class Compte implements Serializable {
-
 	 @Id
 	 @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;

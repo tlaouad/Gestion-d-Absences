@@ -16,11 +16,26 @@ public class EmploiDuTemps implements Serializable {
 
 	@Id @GeneratedValue
 	private Long idEmploi;
-	@OneToMany @JoinColumn
+	@OneToMany(fetch = FetchType.LAZY, 
+		       cascade =
+	       {
+	    		   CascadeType.MERGE,
+	               CascadeType.REMOVE
+	       }) @JoinColumn
 	private List<Seance>seances;
-	@OneToOne(optional = true)
+	@OneToOne(optional = true,fetch = FetchType.LAZY, 
+		       cascade =
+	       {
+	    		   CascadeType.MERGE,
+	               CascadeType.REMOVE
+	       })
 	private Promotion promotion;
-	@OneToOne(optional = true)
+	@OneToOne(optional = true,fetch = FetchType.LAZY, 
+		       cascade =
+	       {
+	    	   CascadeType.MERGE,
+               CascadeType.REMOVE
+	       })
 	private Enseignant enseignant;
 	private static final long serialVersionUID = 1L;
 

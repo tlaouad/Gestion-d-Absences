@@ -9,8 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 
-public class Semestre implements Serializable {
-	
+public class Semestre implements Serializable {	
 	@Id @GeneratedValue
 	private Long idSemeste;
 	private String nom;

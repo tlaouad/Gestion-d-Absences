@@ -9,18 +9,33 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Compte
  *
  */
-@MappedSuperclass
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(name="Role")
+@Table(name = "users")
 public abstract class Compte implements Serializable {
 	 @Id
 	 @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String nom;
 	private String prenom;
+	@Column(name = "username")
 	private String email;
+	@Column(name = "password")
 	private String motDePasse;
+	@Temporal(TemporalType.DATE)
 	private Date dateNaissance;
+	@Column(name = "enabled")
+	private Boolean active=true;
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+
+
 	private static final long serialVersionUID = 1L;
 	public Compte() {
 		super();

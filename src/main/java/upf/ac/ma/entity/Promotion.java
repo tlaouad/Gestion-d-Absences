@@ -38,10 +38,8 @@ public class Promotion implements Serializable {
 		super();
 		this.dateDebut = dateDebut;
 		this.filliere = filliere;
-		this.emploiDuTemps = emploiDuTemps;
+
 	}
-
-
 	public Promotion() {
 		super();
 	}

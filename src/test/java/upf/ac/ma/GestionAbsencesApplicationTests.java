@@ -1,4 +1,5 @@
 package upf.ac.ma;
+import java.util.Date;
 import java.util.Locale;
 
 import org.junit.jupiter.api.Test;
@@ -49,9 +50,11 @@ class GestionAbsencesApplicationTests {
 	void addValues()
 	{
 		Faker faker=new Faker(new Locale("fr"));
+		Filliere filliere=filliereRepository.save(new Filliere("Génie informatique"));
+		Promotion promotion= promotionRepository.save(new Promotion(faker.date().between(new Date(2017), new Date(2021)),filliere ));
 		for (int i=0;i<10;i++)
 		{
-			Etudiant etudiant=etudiantRepository.save(new Etudiant(faker.name().firstName(), faker.name().lastName(),faker.internet().safeEmailAddress(), faker.internet().password(8, 10, true), faker.date().birthday(),promotionRepository.getOne(3L),faker.code().isbn10()));
+			Etudiant etudiant=etudiantRepository.save(new Etudiant(faker.name().firstName(), faker.name().lastName(),faker.internet().safeEmailAddress(), faker.internet().password(8, 10, true), faker.date().birthday(),promotion,faker.code().isbn10()));
 			Enseignant enseignant=enseignantRepository.save(new Enseignant(faker.name().firstName(), faker.name().lastName(),faker.internet().safeEmailAddress(), faker.internet().password(8, 10, true), faker.date().birthday()));
 		}		
 	}

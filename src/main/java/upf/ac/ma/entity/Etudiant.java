@@ -12,7 +12,7 @@ import javax.persistence.*;
 @DiscriminatorValue("Etudiant")
 public class Etudiant extends Compte implements Serializable {   
 	private static final long serialVersionUID = 1L;
-	@ManyToOne(fetch = FetchType.LAZY, 
+	@ManyToOne(fetch = FetchType.EAGER, 
 		       cascade =
 	       {
 	    		   CascadeType.MERGE,
@@ -24,7 +24,6 @@ public class Etudiant extends Compte implements Serializable {
 	public Etudiant() {
 		super();
 	}   
-	
 	public Etudiant(String nom, String prenom, String email, String motDePasse, Date dateNaissance, Promotion promotion,
 			String cne) {
 		super(nom, prenom, email, motDePasse, dateNaissance);
